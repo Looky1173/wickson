@@ -2,7 +2,7 @@
 
 # Wickson
 
-Modern, minimalist, and a friendly React component library.
+A modern, minimalist, and friendly React component library.
 
 ## Installation
 
