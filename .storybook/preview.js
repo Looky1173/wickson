@@ -1,6 +1,7 @@
 import { withThemesProvider } from 'themeprovider-storybook';
 import { ThemeProvider } from 'styled-components';
-import { Color } from '#/utils';
+import Baseline from '#components/Baseline';
+import { Color, Constants } from '#/utils';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -13,11 +14,9 @@ export const parameters = {
     layout: 'centered',
 };
 
-const lightTheme = { name: 'Light', palette: {primary: '#0060aa', onPrimary: '#ffffff', primaryContainer: '#d1e4ff', onPrimaryContainer: '#001c39' } };
+const lightTheme = { name: 'Light', ...Constants.DEFAULT_LIGHT_THEME };
 
 const themes = [lightTheme];
-console.log(themes);
-console.log('COLOR', Color.adjust('#ffb600', 10));
 
 /**
  * Serialize and deserialize theme to work around `values is not defined` error.
@@ -25,7 +24,12 @@ console.log('COLOR', Color.adjust('#ffb600', 10));
 function providerFn({ theme, children }) {
     const serialTheme = JSON.parse(JSON.stringify(theme));
     const newTheme = serialTheme;
-    return <ThemeProvider theme={newTheme}>{children}</ThemeProvider>;
+    return (
+        <ThemeProvider theme={newTheme}>
+            <Baseline />
+            {children}
+        </ThemeProvider>
+    );
 }
 
 export const decorators = [withThemesProvider(themes, { CustomThemeProvider: providerFn })];

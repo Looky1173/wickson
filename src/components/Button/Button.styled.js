@@ -12,4 +12,8 @@ export const StyledButton = styled.button`
     &:hover {
         background-color: ${({theme}) => Color.adjust(theme.palette.primary, -10)};
     }
+
+    &:active {
+        background-color: ${({theme}) => Color.adjust(theme.palette.primary, -20)};
+    }
 `;
