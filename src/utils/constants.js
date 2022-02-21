@@ -28,6 +28,13 @@ const DEFAULT_LIGHT_THEME = {
     },
     typography: {
         fontFamily: DEFAULT_FONT_FAMILY,
+        button: {
+            fontSize: {
+                small: 16,
+                medium: 18,
+                large: 22,
+            }
+        }
     },
 };
 
