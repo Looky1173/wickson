@@ -4,9 +4,9 @@ import { StyledButton } from './Button.styled.js';
 /**
  * Primary UI component for user interaction
  */
-const Button = ({ type = 'filled', variant = 'primary', size = 'medium', disabled = false, loading = false, onClick, children }) => {
+const Button = ({ children, ...props }) => {
     return (
-        <StyledButton onClick={onClick} disabled={disabled} variant={variant} loading={loading} className={[size, type, variant].join(' ')}>
+        <StyledButton {...props}>
             {children}
         </StyledButton>
     );
@@ -16,7 +16,7 @@ Button.propTypes = {
     /**
      * Is this the principal call to action on the page?
      */
-    type: PropTypes.oneOf(['filled', 'tonal', 'outlined', 'text']),
+    type: PropTypes.oneOf(['filled', 'tonal', 'text']),
     variant: PropTypes.oneOf(['primary', 'secondary', 'danger']),
     /**
      * How large should the button be?

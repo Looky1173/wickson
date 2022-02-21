@@ -14,7 +14,7 @@ const Baseline = createGlobalStyle`
     */
     * {
         margin: 0;
-        font-family: ${({theme}) => theme.typography.fontFamily};
+        font-family: ${({ theme }) => theme.typography.fontFamily};
     }
     /*
     3. Allow percentage-based heights in the application
